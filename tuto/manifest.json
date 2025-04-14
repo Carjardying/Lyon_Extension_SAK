@@ -1,10 +1,34 @@
 {
-    "name": "Hello Extensions of the world!",
-    "description": "Base Level Extension",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "hello.html",
-      "default_icon": "default_icon.png"
+  "manifest_version": 3,
+  "name": "Open extension API reference",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "minimum_chrome_version": "102",
+  "omnibox": {
+    "keyword": "api"
+  },
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/reference/*"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
-  }
+  ],
+  "host_permissions": [
+    "https://chrome.dev/f/*"
+  ]
+}
