@@ -1,14 +1,13 @@
 {
     "name": "S.A.K",
-    "description": "Swiss Army Knife : Useful tools. adBlock, night mode, dyslexia friendly font and tab grouping",
+    "description": "Swiss Army Knife : Keep track of what you have to do on website when you don't have the time to do it.",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
         "default_popup": "popup.html",
-        "default_icon": "icon-16 (2).png"
+        "default_icon": "./images/icon-16.png"
     },
     "background": {
-        "service_worker": "./scripts/service_worker.js",
-        "type": "module"
+        "service_worker": "./scripts/background.js"
     }
 }
