@@ -7,8 +7,7 @@ const closeButton = document.querySelector('#close-button');
 
 goToButton.addEventListener("click", (tab) => {
     chrome.tabs.create({
-        // changer url pour kanban.html
-        url: "https://morgan.corroyer.fr/" 
+        url: "kanban.html" 
     });
 });
 
