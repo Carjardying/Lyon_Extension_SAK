@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Extension - SAK</title>
+    <title>SAK</title>
     <script src="./scripts/popup.js" defer></script>
 </head>
 
 <body>
     <h1>SAK</h1>
     <section id="main-page">
-        <h2>Enregistrer la page<button id="add-button">Enregistrer (Ouvre une autre popup)</button></h2>
+        <h2>Enregistrer la page<button id="add-button">Enregistrer</button></h2>
         <h2>Ouvrir ma TO-DO List<button id="go-to-button">Ouvrir</button></h2>
     </section>
     <section id="adding-page" style="display: none;">
-        <div id="topic">Thème : <input type="text"></div>
-        <div id="url">Url : "l'url recupérer"</div>
-        <div id="description">Description : <input type="text"></div>
+        <div>Thème : <input type="text" id="topic"></div>
+        <div>Url : <span id="tab-url"></span></div>
+        <div>Description : <input type="text" id="description"></div>
         <button id="send-button">Ajouter bloc</button>
         <button id="close-button">Annuler ajout</button>
     </section>
