@@ -6,5 +6,9 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": "icon-16 (2).png"
+    },
+    "background": {
+        "service_worker": "./scripts/service_worker.js",
+        "type": "module"
     }
 }
