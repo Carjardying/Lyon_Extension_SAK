@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAK - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <script src="scripts/kanban.js"></script>
+</head>
+
+<body>
+    <div class="fontSpecimen">
+        <div class="themeDiv">
+            <label for="theme-select">Choisissez un thème</label>
+
+            <select name="themes" id="theme-select">
+                <option value="loisirs" class="themeChoice">Loisirs</option>
+                <option value="apprentissage" class="themeChoice">Apprentissage</option>
+                <option value="achats" class="themeChoice">Achats</option>
+                <option value="job" class="themeChoice">Job</option>
+            </select>
+        </div>
+
+        <div class="kanban">
+            <div class="todo">
+                <p class="todoText">A faire</p>
+                <div class="todoList">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+            </div>
+            <div class="inProgress">
+                <p class="inProgressText">En cours</p>
+                <div class="inProgressList">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+            </div>
+            <div class="done">
+                <p class="doneText">Terminé</p>
+                <div class="doneList">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
