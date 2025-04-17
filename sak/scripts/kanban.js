@@ -1,14 +1,3 @@
-// rajouter chrome storage
-
-let tableau = [
-    {
-        "theme": "",
-        "URL": "",
-        "description":"",
-        "status": ""
-    }
-]
-
 const todoList = document.querySelector(".todoList");
 const inProgressList = document.querySelector(".inProgressList");
 const doneList = document.querySelector(".doneList");
