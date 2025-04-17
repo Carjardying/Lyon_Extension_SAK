@@ -1,5 +1,8 @@
 html {
     border: solid #faf7e8;
+    max-width: 350px;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -34,11 +37,19 @@ button {
 }
 
 #tab-url {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+    width: 300px;
     background-color: #393939;
     color: #faf7e8;
     font-style: oblique;
     text-decoration: underline;
     cursor: default;
+}
+
+.urlDiv{
+    max-width: 100%;
 }
 
 div {
