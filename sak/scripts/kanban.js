@@ -1,43 +1,62 @@
 // rajouter chrome storage
 
-let tableau = [
+let tasks = [
     {
-        "theme": "",
-        "URL": "",
-        "description":"",
-        "status": ""
-    }
-]
+        id: 1,
+        status: "a faire",
+        url: "https://www.equipe.fr",
+        theme: "sport",
+        description: "lire article rugby"
+    },
+    {
+        id: 2,
+        status: "a faire",
+        url: "https://www.darty.fr",
+        theme: "achat",
+        description: "commander aspirateur dyson"
+    },
+];
 
-const todoList = document.querySelector(".todoList");
+
+const toDoList = document.querySelector("#toDoTask");
 const inProgressList = document.querySelector(".inProgressList");
 const doneList = document.querySelector(".doneList");
 
-const saveButton = document.querySelector(".saveButton");
 
-function saveTheme(theme) {
+
+function saveTheme(element) {
     let theme = document.createElement("p");
-    theme.innerText = "";
+    theme.innerText = element ;
     theme.classList.add("themeClass");
-    todoList.appendChild(theme);
+    toDoList.appendChild(theme);
+    console.log(theme);
 }
 
-function saveURL(url) {
+function saveURL(element) {
     let url = document.createElement("p");
-    url.innerText ="";
+    url.innerText = element;
     url.classList.add("urlClass");
-    todoList.appendChild(url);
+    toDoList.appendChild(url);
+    console.log(url);
 }
 
-function saveDescription(description) {
+function saveDescription(element) {
     let description = document.createElement("p");
-    description.innerText = "";
+    description.innerText = element;
     description.classList.add("descriptionClass");
-    todoList.appendChild(description);
+    console.log(description);
+    toDoList.appendChild(description);
 }
 
-saveButton.addEventListener("click", () => {
-    saveTheme();
-    saveURL();
-    saveDescription();
+// saveButton.addEventListener("click", () => {
+    
+// })
+
+
+/** **/
+tasks.forEach((task) => {
+    console.log(task.theme);
+    saveTheme(task.theme);
+    saveURL(task.url);
+    saveDescription(task.description);
 })
