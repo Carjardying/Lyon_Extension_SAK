@@ -1,13 +1,51 @@
-const mainPage = document.querySelector("#main-page");
-const addingPage = document.querySelector("#adding-page");
-const goToButton = document.querySelector("#go-to-button");
-const addButton = document.querySelector("#add-button");
-const sendButton = document.querySelector("#send-button");
-const closeButton = document.querySelector("#close-button");
-const tabUrl = document.querySelector("#tab-url");
-const topicInput = document.querySelector("#topic");
-const descriptioninput = document.querySelector("#description");
-const newTaskZone = document.querySelector("#toDoTask");
+// init variables
+
+const mainPage = document.querySelector('#main-page');
+const addingPage = document.querySelector('#adding-page');
+const goToButton = document.querySelector('#go-to-button');
+const addButton = document.querySelector('#add-button');
+const sendButton = document.querySelector('#send-button');
+const closeButton = document.querySelector('#close-button');
+const tabUrl = document.querySelector('#tab-url');
+const topic = document.querySelector('#topic');
+const description = document.querySelector('#description');
+let tasks = [];
+
+
+// init functions
+
+function getTabUrl() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const currentTab = tabs[0];
+        const url = currentTab.url;
+
+        tabUrl.textContent = url;
+    });
+}
+
+function addTask(newTask) {
+    chrome.storage.local.get("myTasks", (result) => {
+        const currentTasks = result.myTasks || [];
+
+        currentTasks.push(newTask);
+        chrome.storage.local.set({ myTasks: currentTasks });
+    });
+}
+
+function updateChromeStorage() {
+    chrome.storage.local.get("myTasks", (result) => {
+        if (result.myTasks) {
+            chrome.storage.local.set({ myTasks: result.mytasks });
+        } else {
+            chrome.storage.local.set({ myTasks: tasks });
+        }
+    });
+}
+
+
+// execute code
+
+updateChromeStorage();
 
 goToButton.addEventListener("click", (tab) => {
   // ouvre la page kanban dans un nouvel onglet
@@ -17,15 +55,9 @@ goToButton.addEventListener("click", (tab) => {
 });
 
 addButton.addEventListener("click", () => {
-  // crée la nouvelle "page" pour enregistrer les informations nécéssaires pour creer le nouveau block
-  mainPage.style.display = "none";
-  addingPage.style.display = "block";
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const currentTab = tabs[0];
-    const url = currentTab.url;
-
-    tabUrl.textContent = url;
-  });
+    mainPage.style.display = "none";
+    addingPage.style.display = "block";
+    getTabUrl();
 });
 
 closeButton.addEventListener("click", () => {
@@ -34,6 +66,13 @@ closeButton.addEventListener("click", () => {
 });
 
 sendButton.addEventListener("click", () => {
-  // créer le bloc dans le chromeStorage grâce aux infos fournies dans le addbutton
-  // faire code ...
+    const newTask = {
+        id: 1,
+        status: "a faire",
+        url: tabUrl.textContent,
+        theme: topic.value,
+        description: description.value
+    }
+    addTask(newTask);
+    window.close();
 });
