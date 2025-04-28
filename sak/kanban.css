@@ -10,9 +10,15 @@
 
 /* --------------------GLOBAL-------------------- */
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #393939;
     font-family: "Lexend", sans-serif;
+    padding: 10px;
 }
 
 
@@ -43,7 +49,7 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 5px;
-    width: 300px;
+    width: 250px;
 }
 
 .status {
@@ -55,10 +61,10 @@ body {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    background-color: #065a50;
     color: #faf7e8;
     font-weight: 500;
-    font-size: larger;
+    font-size: large;
+    text-transform: uppercase;
 }
 
 .task-container {
@@ -73,19 +79,39 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: fit-content;
     width: inherit;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-    background-color: #065a50;
     color: #faf7e8;
+}
+
+.theme {
+    text-align: center;
+    font-size: larger;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.link {
+    text-align: left;
+    margin-bottom: 10px;
+    font-style: italic;
 }
 
 label {
     font-weight: bold;
 }
 
-.task p {
-    text-align: center;
+.lightGreen {
+    background-color: #0e9686;
+}
+
+.green {
+    background-color: #065a50;
+}
+
+.darkGreen {
+    background-color: #074b43b7;
+    color: #faf7e8bb;
 }
