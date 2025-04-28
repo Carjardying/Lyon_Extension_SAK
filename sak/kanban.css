@@ -24,6 +24,7 @@ body {
 
 #theme-select {
     font-family: "Lexend", sans-serif;
+    background-color: #faf7e8;
 }
 
 
@@ -33,28 +34,31 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .task-column {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 5px;
+    width: 300px;
 }
 
 .status {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
     height: fit-content;
+    width: inherit;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: #065a50;
     color: #faf7e8;
+    font-weight: 500;
+    font-size: larger;
 }
 
 .task-container {
@@ -62,18 +66,26 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: inherit;
 }
 
 .task {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 200px;
     height: fit-content;
+    width: inherit;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     background-color: #065a50;
     color: #faf7e8;
+}
+
+label {
+    font-weight: bold;
+}
+
+.task p {
+    text-align: center;
 }
