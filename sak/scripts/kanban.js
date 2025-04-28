@@ -1,27 +1,41 @@
-// rajouter chrome storage
+/** INIT VARIABLES **/
 
-let tasks = [
-  {
-    id: 1,
-    status: "a faire",
-    url: "https://www.equipe.fr",
-    theme: "sport",
-    description: "lire article rugby",
-  },
-  {
-    id: 2,
-    status: "a faire",
-    url: "https://www.darty.fr",
-    theme: "achat",
-    description: "commander aspirateur dyson",
-  },
-];
+
+
+// let tasks = [
+//   {
+//     id: 1,
+//     status: "a faire",
+//     url: "https://www.equipe.fr",
+//     theme: "sport",
+//     description: "lire article rugby",
+//   },
+//   {
+//     id: 2,
+//     status: "a faire",
+//     url: "https://www.darty.fr",
+//     theme: "achat",
+//     description: "commander aspirateur dyson",
+//   },
+// ];
 
 const inProgressList = document.querySelector("#inProgressList");
 const doneList = document.querySelector("#doneList");
 const toDoContainer = document.querySelector("#toDoContainer");
 
-/** CREATION DIVS **/
+/** INIT FUNCTIONS **/
+
+function getChromeStorage(newTask) {
+  chrome.storage.local.get("myTasks", (result) => {
+    const currentTasks = result.myTasks || [];
+    console.log("get chrome storage se lance" + currentTasks); //vérifier que chrome storage fonctionne
+
+    currentTasks.push(newTask);
+    chrome.storage.local.set({ myTasks: currentTasks });
+    return currentTasks;
+  });
+}
+
 function createNewTaskDiv() {
   let newTask = document.createElement("div");
   newTask.setAttribute("id", "toDoTask");
@@ -29,18 +43,21 @@ function createNewTaskDiv() {
   toDoContainer.appendChild(newTask);
   return newTask;
 }
+
 function saveTheme(taskHTML, element) {
   let theme = document.createElement("p");
   theme.innerText = `Thème :\n ${element}`;
   taskHTML.appendChild(theme);
   theme.classList.add("themeClass");
 }
+
 function saveURL(taskHTML, element) {
   let url = document.createElement("p");
   url.innerText = `URL : ${element}`;
   taskHTML.appendChild(url);
   url.classList.add("urlClass");
 }
+
 function saveDescription(taskHTML, element) {
   let description = document.createElement("p");
   description.innerText = `Description :\n ${element}`;
@@ -48,19 +65,18 @@ function saveDescription(taskHTML, element) {
   description.classList.add("descriptionClass");
 }
 
-// saveButton.addEventListener("click", () => {
+function addTaskToContainer() {
+  const tasksObject = getChromeStorage();
+  tasksObject.forEach((task) => {
+    let newTask = createNewTaskDiv();
+    console.log(newTask, task.theme); //console.log
 
-// })
- 
-/** AFFICHE LE TABLEAU DE TACHE **/
-function addTaskToContainer () {
-    tasks.forEach((task) => {
-        let newTask = createNewTaskDiv();
-        console.log(task.theme);
-        saveTheme(newTask, task.theme);
-        saveURL(newTask, task.url);
-        saveDescription(newTask, task.description);
-      });
+    saveTheme(newTask, task.theme);
+    saveURL(newTask, task.url);
+    saveDescription(newTask, task.description);
+  });
 }
+
+/** EXECUTE CODE **/
 
 addTaskToContainer();
