@@ -1,0 +1,117 @@
+/* --------------------FONTS-------------------- */
+
+.fontSpecimen {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* --------------------GLOBAL-------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #393939;
+    font-family: "Lexend", sans-serif;
+    padding: 10px;
+}
+
+
+/* --------------------THEME SELECTOR-------------------- */
+
+.themeDiv {
+    color: #faf7e8;
+}
+
+#theme-select {
+    font-family: "Lexend", sans-serif;
+    background-color: #faf7e8;
+}
+
+
+/* --------------------KANBAN-------------------- */
+
+.kanban {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 10px;
+}
+
+.task-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    width: 250px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: inherit;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: #faf7e8;
+    font-weight: 500;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: inherit;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: inherit;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #faf7e8;
+}
+
+.theme {
+    text-align: center;
+    font-size: larger;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.link {
+    text-align: left;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+label {
+    font-weight: bold;
+}
+
+.lightGreen {
+    background-color: #0e9686;
+}
+
+.green {
+    background-color: #065a50;
+}
+
+.darkGreen {
+    background-color: #074b43b7;
+    color: #faf7e8bb;
+}
