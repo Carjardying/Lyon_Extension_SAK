@@ -5,21 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAK</title>
+    <link rel="stylesheet" href="popup.css">
     <script src="./scripts/popup.js" defer></script>
 </head>
 
 <body>
     <h1>SAK</h1>
     <section id="main-page">
-        <h2>Enregistrer la page<button id="add-button">Enregistrer</button></h2>
-        <h2>Ouvrir ma TO-DO List<button id="go-to-button">Ouvrir</button></h2>
+        <div>
+            <label for="add-button">Enregistrer la page </label> <br>
+            <button id="add-button">Enregistrer</button>
+        </div>
+        <div>
+            <label for="go-to-button">Ouvrir ma TO-DO List</label> <br>
+            <button id="go-to-button">Ouvrir</button>
+        </div>
     </section>
+
     <section id="adding-page" style="display: none;">
-        <div>Thème : <input type="text" id="topic"></div>
-        <div>Url : <span id="tab-url"></span></div>
-        <div>Description : <input type="text" id="description"></div>
-        <button id="send-button">Ajouter bloc</button>
-        <button id="close-button">Annuler ajout</button>
+        <div class="urlDiv">
+            <label for="tab-url"> Url :</label>
+            <span id="tab-url"></span>
+        </div>
+        <div>
+            <label for="topic">Thème :</label>
+            <input type="text" id="topic">
+        </div>
+        <div>
+            <label for="description">Description :</label>
+            <input type="text" id="description">
+        </div>
+        <div class="displayButtons">
+            <button id="close-button">Annuler</button>
+            <button id="send-button">Enregistrer</button>
+        </div>
     </section>
 </body>
 

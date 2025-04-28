@@ -73,4 +73,5 @@ sendButton.addEventListener("click", () => {
         description: description.value
     }
     addTask(newTask);
+    window.close();
 });
