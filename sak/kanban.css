@@ -11,7 +11,7 @@ body {
     font-style: normal;
 }
 
-/* --------------------THEMES SELECT BUTTON-----------------------------*/
+/* --------------------THEMES SELECT BUTTON------------------------------------------*/
 
 .themeDiv{
     color: whitesmoke;
@@ -24,7 +24,7 @@ body {
     font-style: normal;
 }
 
-/* --------------------KANBAN INTEGRAL-----------------------------*/
+/* --------------------KANBAN INTEGRAL-----------------------------------------------*/
 .kanban {
     display: flex;
     justify-content: space-evenly;
@@ -32,7 +32,7 @@ body {
     margin-top: 20px;
 }
 
-/* --------------------BLOC DES INTITULES DES ACTIONS-----------------------------*/
+/* --------------------BLOC DES INTITULES DES ACTIONS---------------------------------*/
 .todo {
     border: solid #0c22a3;
     background-color: #0c22a3;
@@ -78,7 +78,7 @@ body {
     color: whitesmoke;
 }
 
-/* --------------------BLOC DES ACTIONS DYNAMIQUE-----------------------------*/
+/* --------------------BLOC DES ACTIONS DYNAMIQUE-------------------------------------*/
 
 .todoList {
     margin-top: 50px;
