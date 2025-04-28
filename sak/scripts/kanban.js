@@ -31,7 +31,7 @@ function createNewTaskDiv() {
 }
 function saveTheme(taskHTML, element) {
   let theme = document.createElement("p");
-  theme.innerText = `Thème : ${element}`;
+  theme.innerText = `Thème :\n ${element}`;
   taskHTML.appendChild(theme);
   theme.classList.add("themeClass");
 }
@@ -43,7 +43,7 @@ function saveURL(taskHTML, element) {
 }
 function saveDescription(taskHTML, element) {
   let description = document.createElement("p");
-  description.innerText = `Description : ${element}`;
+  description.innerText = `Description :\n ${element}`;
   taskHTML.appendChild(description);
   description.classList.add("descriptionClass");
 }
@@ -51,7 +51,7 @@ function saveDescription(taskHTML, element) {
 // saveButton.addEventListener("click", () => {
 
 // })
-
+ 
 /** AFFICHE LE TABLEAU DE TACHE **/
 function addTaskToContainer () {
     tasks.forEach((task) => {
