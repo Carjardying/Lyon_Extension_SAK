@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAK - To-Do List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kanban.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <script defer src="scripts/kanban.js"></script>
-   
+
 
 </head>
 
@@ -28,28 +28,26 @@
         </div>
 
         <div class="kanban">
-            <div class="todo">
-                <p class="todoText" >A faire</p>
-                <div class="toDoList"  id = "toDoTask">
-                    <div>Thème: </div>
-                    <div>Site: url</div>
-                    <div>Description: </div>
+            <div class="toDoList">
+                <p class="toDoText">A faire</p>
+                <div id="toDoContainer">
+                    <!-- <div class="toDoTask"  id="toDoTask">
+                         <div>Thème: </div>
+                        <div>Site: url</div>
+                        <div>Description: </div> 
+                    </div> -->
                 </div>
+
             </div>
             <div class="inProgress">
                 <p class="inProgressText">En cours</p>
-                <div class="inProgressList">
-                    <div>Thème: </div>
-                    <div>Site: url</div>
-                    <div>Description: </div>
+
+                <div class="inProgressList" id="inProgressList"> <!-- à remplacer dynamiquement-->
                 </div>
             </div>
             <div class="done">
                 <p class="doneText">Terminé</p>
-                <div class="doneList">
-                    <div>Thème: </div>
-                    <div>Site: url</div>
-                    <div>Description: </div>
+                <div class="doneList" id="doneList"> <!-- à remplacer dynamiquement-->
                 </div>
             </div>
         </div>

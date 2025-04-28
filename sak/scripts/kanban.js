@@ -1,62 +1,66 @@
 // rajouter chrome storage
 
 let tasks = [
-    {
-        id: 1,
-        status: "a faire",
-        url: "https://www.equipe.fr",
-        theme: "sport",
-        description: "lire article rugby"
-    },
-    {
-        id: 2,
-        status: "a faire",
-        url: "https://www.darty.fr",
-        theme: "achat",
-        description: "commander aspirateur dyson"
-    },
+  {
+    id: 1,
+    status: "a faire",
+    url: "https://www.equipe.fr",
+    theme: "sport",
+    description: "lire article rugby",
+  },
+  {
+    id: 2,
+    status: "a faire",
+    url: "https://www.darty.fr",
+    theme: "achat",
+    description: "commander aspirateur dyson",
+  },
 ];
 
+const inProgressList = document.querySelector("#inProgressList");
+const doneList = document.querySelector("#doneList");
+const toDoContainer = document.querySelector("#toDoContainer");
 
-const toDoList = document.querySelector("#toDoTask");
-const inProgressList = document.querySelector(".inProgressList");
-const doneList = document.querySelector(".doneList");
-
-
-
-function saveTheme(element) {
-    let theme = document.createElement("p");
-    theme.innerText = element ;
-    theme.classList.add("themeClass");
-    toDoList.appendChild(theme);
-    console.log(theme);
+/** CREATION DIVS **/
+function createNewTaskDiv() {
+  let newTask = document.createElement("div");
+  newTask.setAttribute("id", "toDoTask");
+  newTask.setAttribute("class", "toDoTask");
+  toDoContainer.appendChild(newTask);
+  return newTask;
 }
-
-function saveURL(element) {
-    let url = document.createElement("p");
-    url.innerText = element;
-    url.classList.add("urlClass");
-    toDoList.appendChild(url);
-    console.log(url);
+function saveTheme(taskHTML, element) {
+  let theme = document.createElement("p");
+  theme.innerText = `Thème : ${element}`;
+  taskHTML.appendChild(theme);
+  theme.classList.add("themeClass");
 }
-
-function saveDescription(element) {
-    let description = document.createElement("p");
-    description.innerText = element;
-    description.classList.add("descriptionClass");
-    console.log(description);
-    toDoList.appendChild(description);
+function saveURL(taskHTML, element) {
+  let url = document.createElement("p");
+  url.innerText = `URL : ${element}`;
+  taskHTML.appendChild(url);
+  url.classList.add("urlClass");
+}
+function saveDescription(taskHTML, element) {
+  let description = document.createElement("p");
+  description.innerText = `Description : ${element}`;
+  taskHTML.appendChild(description);
+  description.classList.add("descriptionClass");
 }
 
 // saveButton.addEventListener("click", () => {
-    
+
 // })
 
+/** AFFICHE LE TABLEAU DE TACHE **/
+function addTaskToContainer () {
+    tasks.forEach((task) => {
+        let newTask = createNewTaskDiv();
+        console.log(task.theme);
+        saveTheme(newTask, task.theme);
+        saveURL(newTask, task.url);
+        saveDescription(newTask, task.description);
+      });
+}
 
-/** **/
-tasks.forEach((task) => {
-    console.log(task.theme);
-    saveTheme(task.theme);
-    saveURL(task.url);
-    saveDescription(task.description);
-})
+addTaskToContainer();
