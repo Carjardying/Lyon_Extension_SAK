@@ -48,9 +48,10 @@ function updateChromeStorage() {
 updateChromeStorage();
 
 goToButton.addEventListener("click", (tab) => {
-    chrome.tabs.create({
-        url: "kanban.html"
-    });
+  // ouvre la page kanban dans un nouvel onglet
+  chrome.tabs.create({
+    url: "kanban.html",
+  });
 });
 
 addButton.addEventListener("click", () => {
@@ -60,8 +61,8 @@ addButton.addEventListener("click", () => {
 });
 
 closeButton.addEventListener("click", () => {
-    mainPage.style.display = "block";
-    addingPage.style.display = "none";
+  mainPage.style.display = "block";
+  addingPage.style.display = "none";
 });
 
 sendButton.addEventListener("click", () => {
