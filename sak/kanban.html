@@ -13,38 +13,55 @@
 </head>
 
 <body>
-    <div class="fontSpecimen">
-        <div class="themeDiv">
-            <label for="theme-select">Choisissez un thème</label>
-
-            <select name="themes" id="theme-select">
-                <option value="loisirs" class="themeChoice">Loisirs</option>
-                <option value="apprentissage" class="themeChoice">Apprentissage</option>
-                <option value="achats" class="themeChoice">Achats</option>
-                <option value="job" class="themeChoice">Job</option>
-            </select>
+    <div class="themeDiv">
+        <label for="theme-select">Choisissez un thème</label>
+        <select name="themes" id="theme-select">
+            <option value="loisirs">Loisirs</option>
+            <option value="apprentissage">Apprentissage</option>
+            <option value="achats">Achats</option>
+            <option value="job">Job</option>
+        </select>
+    </div>
+    <div class="kanban">
+        <div class="task-column">
+            <p class="status">A faire</p>
+            <div class="task-container">
+                <div class="task">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+                <div class="task">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+            </div>
         </div>
-
-        <div class="kanban">
-            <div class="todo">
-                <p class="todoText">A faire</p>
-                <div class="todoList">
+        <div class="task-column">
+            <p class="status">En cours</p>
+            <div class="task-container">
+                <div class="task">
                     <div>Thème: </div>
                     <div>Site: url</div>
                     <div>Description: </div>
                 </div>
             </div>
-            <div class="inProgress">
-                <p class="inProgressText">En cours</p>
-                <div class="inProgressList">
+        </div>
+        <div class="task-column">
+            <p class="status">Terminé</p>
+            <div class="task-container">
+                <div class="task">
                     <div>Thème: </div>
                     <div>Site: url</div>
                     <div>Description: </div>
                 </div>
-            </div>
-            <div class="done">
-                <p class="doneText">Terminé</p>
-                <div class="doneList">
+                <div class="task">
+                    <div>Thème: </div>
+                    <div>Site: url</div>
+                    <div>Description: </div>
+                </div>
+                <div class="task">
                     <div>Thème: </div>
                     <div>Site: url</div>
                     <div>Description: </div>

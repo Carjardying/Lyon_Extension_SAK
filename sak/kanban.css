@@ -1,8 +1,4 @@
-/* --------------------GLOBAL FONT AND BACKGROUND COLOR-----------------------------*/
-
-body {
-    background-color: #393939;
-}
+/* --------------------FONTS-------------------- */
 
 .fontSpecimen {
     font-family: "Lexend", sans-serif;
@@ -11,104 +7,73 @@ body {
     font-style: normal;
 }
 
-/* --------------------THEMES SELECT BUTTON------------------------------------------*/
 
-.themeDiv{
-    color: whitesmoke;
-}
+/* --------------------GLOBAL-------------------- */
 
-.themeChoice {
+body {
+    background-color: #393939;
     font-family: "Lexend", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
 }
 
-/* --------------------KANBAN INTEGRAL-----------------------------------------------*/
+
+/* --------------------THEME SELECTOR-------------------- */
+
+.themeDiv {
+    color: #faf7e8;
+}
+
+#theme-select {
+    font-family: "Lexend", sans-serif;
+}
+
+
+/* --------------------KANBAN-------------------- */
+
 .kanban {
     display: flex;
     justify-content: space-evenly;
-    grid-auto-rows: auto;
-    margin-top: 20px;
+    align-items: baseline;
+    margin-top: 40px;
 }
 
-/* --------------------BLOC DES INTITULES DES ACTIONS---------------------------------*/
-.todo {
-    border: solid #0c22a3;
-    background-color: #0c22a3;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    color: whitesmoke;
+.task-column {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
 }
 
-.inProgress {
-    border: solid #b25e24;
-    background-color: #b25e24;
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    color: whitesmoke;
-}
-
-.done {
-    border: solid #065a50;
-    width: 200px;
-    height: 50px;
+    height: fit-content;
+    padding: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: #065a50;
-    color: whitesmoke;
+    color: #faf7e8;
 }
 
-.todoText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.inProgressText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
-}
-
-.doneText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
-}
-
-/* --------------------BLOC DES ACTIONS DYNAMIQUE-------------------------------------*/
-
-.todoList {
-    margin-top: 50px;
-    border: solid #0c22a3;
-    background-color: #0c22a3;
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 200px;
-    height: 100px;
+    height: fit-content;
+    padding: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    display: grid;
-    place-items: center;
-}
-
-.inProgressList {
-    margin-top: 50px;
-    border: solid #b25e24;
-    background-color: #b25e24;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-}
-
-.doneList {
-    margin-top: 50px;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    border: solid #065a50;
     background-color: #065a50;
+    color: #faf7e8;
 }
