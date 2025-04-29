@@ -29,6 +29,7 @@ function addTask(newTask) {
 
         currentTasks.push(newTask);
         chrome.storage.local.set({ myTasks: currentTasks });
+        console.log(currentTasks);
     });
 }
 
@@ -74,5 +75,5 @@ sendButton.addEventListener("click", () => {
         description: description.value
     }
     addTask(newTask);
-    window.close();
+    // window.close();
 });
