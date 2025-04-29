@@ -67,7 +67,7 @@ closeButton.addEventListener("click", () => {
 sendButton.addEventListener("click", () => {
     const newTask = {
         id: 1,
-        status: "a faire",
+        status: "à faire",
         url: tabUrl.textContent,
         theme: topic.value,
         description: description.value
