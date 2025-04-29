@@ -14,6 +14,16 @@ let tasks = [];
 
 // init functions
 
+function updateChromeStorage() {
+    chrome.storage.local.get("myTasks", (result) => {
+        if (result.myTasks) {
+            chrome.storage.local.set({ myTasks: result.mytasks });
+        } else {
+            chrome.storage.local.set({ myTasks: tasks });
+        }
+    });
+}
+
 function getTabUrl() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const currentTab = tabs[0];
@@ -29,17 +39,6 @@ function addTask(newTask) {
 
         currentTasks.push(newTask);
         chrome.storage.local.set({ myTasks: currentTasks });
-        console.log(currentTasks);
-    });
-}
-
-function updateChromeStorage() {
-    chrome.storage.local.get("myTasks", (result) => {
-        if (result.myTasks) {
-            chrome.storage.local.set({ myTasks: result.mytasks });
-        } else {
-            chrome.storage.local.set({ myTasks: tasks });
-        }
     });
 }
 
@@ -48,7 +47,7 @@ function updateChromeStorage() {
 
 updateChromeStorage();
 
-goToButton.addEventListener("click", (tab) => {
+goToButton.addEventListener("click", () => {
   chrome.tabs.create({
     url: "kanban.html",
   });
@@ -73,6 +72,7 @@ sendButton.addEventListener("click", () => {
         theme: topic.value,
         description: description.value
     }
+
     addTask(newTask);
     window.close();
 });
