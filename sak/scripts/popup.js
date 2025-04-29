@@ -29,6 +29,7 @@ function addTask(newTask) {
 
         currentTasks.push(newTask);
         chrome.storage.local.set({ myTasks: currentTasks });
+        console.log(currentTasks);
     });
 }
 
@@ -48,9 +49,9 @@ function updateChromeStorage() {
 updateChromeStorage();
 
 goToButton.addEventListener("click", (tab) => {
-    chrome.tabs.create({
-        url: "kanban.html"
-    });
+  chrome.tabs.create({
+    url: "kanban.html",
+  });
 });
 
 addButton.addEventListener("click", () => {
@@ -60,8 +61,8 @@ addButton.addEventListener("click", () => {
 });
 
 closeButton.addEventListener("click", () => {
-    mainPage.style.display = "block";
-    addingPage.style.display = "none";
+  mainPage.style.display = "block";
+  addingPage.style.display = "none";
 });
 
 sendButton.addEventListener("click", () => {
