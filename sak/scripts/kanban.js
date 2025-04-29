@@ -26,7 +26,7 @@ function createNewTaskDiv(task) {
 
   newTask.classList.add("task");
   newTask.classList.add("lightGreen");
-
+  
   getTheme(newTask, task);
   getURL(newTask, task);
   getDescription(newTask, task);
