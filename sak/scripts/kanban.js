@@ -25,13 +25,10 @@ const toDoContainer = document.querySelector("#toDoContainer");
 
 /** INIT FUNCTIONS **/
 
-function getChromeStorage(newTask) {
+function getChromeStorage() {
   chrome.storage.local.get("myTasks", (result) => {
     const currentTasks = result.myTasks || [];
     console.log("get chrome storage se lance" + currentTasks); //vérifier que chrome storage fonctionne
-
-    currentTasks.push(newTask);
-    chrome.storage.local.set({ myTasks: currentTasks });
     return currentTasks;
   });
 }
