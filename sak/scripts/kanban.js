@@ -17,11 +17,11 @@ function showKanban() {
 
 function createTasks(currentTasks) {
   currentTasks.forEach((task) => {
-    createNewTaskDiv(task);
+    createNewTaskDiv(task, currentTasks);
   });
 }
 
-function createNewTaskDiv(task) {
+function createNewTaskDiv(task, currentTasks) {
   let newTask = document.createElement("div");
 
   newTask.classList.add("task");
@@ -29,7 +29,7 @@ function createNewTaskDiv(task) {
   getTheme(newTask, task);
   getURL(newTask, task);
   getDescription(newTask, task);
-  createStatusSelector(newTask);
+  createStatusSelector(newTask, task, currentTasks);
   dispatchTask(newTask, task);
 }
 
@@ -44,6 +44,7 @@ function dispatchTask(newTask, task) {
     doneContainer.appendChild(newTask);
     newTask.classList.add("darkGreen");
   }
+  
 }
 
 function getTheme(newTask, task) {
@@ -79,15 +80,15 @@ function getDescription(newTask, task) {
   newTask.appendChild(description);
 }
 
-function createStatusSelector(newTask) {
+function createStatusSelector(newTask, task, currentTasks) {
   let statusSelector = document.createElement("select");
   let optionToDo = document.createElement("option");
   let optionInProgress = document.createElement("option");
   let optionDone = document.createElement("option");
 
-  optionToDo.setAttribute("value", "à faire");
-  optionInProgress.setAttribute("value", "en cours");
-  optionDone.setAttribute("value", "terminé");
+  optionToDo.value = "à faire";
+  optionInProgress.value = "en cours";
+  optionDone.value ="terminé";
 
   optionToDo.innerText = "à faire";
   optionInProgress.innerText = "en cours";
@@ -96,8 +97,18 @@ function createStatusSelector(newTask) {
   statusSelector.appendChild(optionToDo);
   statusSelector.appendChild(optionInProgress);
   statusSelector.appendChild(optionDone);
-
   newTask.appendChild(statusSelector);
+  
+  changeStatus(newTask, task, statusSelector, currentTasks);
+}
+
+function changeStatus(newTask, task, statusSelector, currentTasks) {
+  statusSelector.addEventListener("change", ()=>{
+    task.status = statusSelector.value;
+    newTask.classList.remove("lightGreen", "green", "darkGreen");
+    dispatchTask(newTask, task, statusSelector);
+    chrome.storage.local.set({ myTasks: currentTasks });
+  })
 }
 
 
