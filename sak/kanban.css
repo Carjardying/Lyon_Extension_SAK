@@ -97,6 +97,17 @@ body {
     text-align: left;
     margin-bottom: 10px;
     font-style: italic;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+    color: #dcdbd6;
+    font-weight: 300;
+}
+
+.description {
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    text-align: justify;
 }
 
 label {

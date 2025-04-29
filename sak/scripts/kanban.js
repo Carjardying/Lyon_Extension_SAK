@@ -9,52 +9,59 @@ const toDoContainer = document.querySelector("#to-do-container");
 function getChromeStorage() {
   chrome.storage.local.get("myTasks", (result) => {
     const currentTasks = result.myTasks || [];
-    console.log("get chrome storage se lance" + currentTasks); //vérifier que chrome storage fonctionne
-
-    return currentTasks;
+    addTaskToContainer(currentTasks);
   });
 }
 
-function createNewTaskDiv() {
+function createNewTaskDiv(task) {
   let newTask = document.createElement("div");
-  newTask.classList.add("task lightGreen");
+
+  newTask.classList.add("task");
+  newTask.classList.add("lightGreen");
+
+  getTheme(newTask, task);
+  getURL(newTask, task);
+  getDescription(newTask, task);
+
   toDoContainer.appendChild(newTask);
-  return newTask;
 }
 
-function saveTheme(taskHTML, element) {
+function getTheme(newTask, task) {
   let theme = document.createElement("span");
-  theme.innerText = element;
+  theme.innerText = task.theme;
   theme.classList.add("theme");
-  taskHTML.appendChild(theme);
+  newTask.appendChild(theme);
 }
 
-function saveURL(taskHTML, element) {
-  let link = document.createElement("span");
-  link.innerText = element;
+function getURL(newTask, task) {
+  let link = document.createElement("a");
+  link.setAttribute("href", task.url);
+  link.innerText = task.url;
   link.classList.add("link");
-  taskHTML.appendChild(link);
+  newTask.appendChild(link);
 }
 
-function saveDescription(taskHTML, element) {
+function getDescription(newTask, task) {
   let description = document.createElement("span");
-  description.innerText = `Description :\n${element}`;
-  description.classList.add("description");
-  taskHTML.appendChild(description);
+  let label = document.createElement("label");
+  let textDescription = document.createElement("p");
+
+  label.innerText = `Description :`;
+  textDescription.innerText = task.description;
+
+  textDescription.classList.add("description");
+  
+  description.appendChild(label);
+  description.appendChild(textDescription);
+  newTask.appendChild(description);
 
 }
 
-function addTaskToContainer(tasksObject) {
-  tasksObject.forEach((task) => {
-    let newTask = createNewTaskDiv();
-    console.log(newTask, task.theme); //console.log
-    saveTheme(newTask, task.theme);
-    saveURL(newTask, task.url);
-    saveDescription(newTask, task.description);
+function addTaskToContainer(currentTasks) {
+  currentTasks.forEach((task) => {
+    createNewTaskDiv(task);
   });
 }
 
 /** EXECUTE CODE **/
-
-const tasksObject = getChromeStorage();
-addTaskToContainer(tasksObject);
+getChromeStorage();
