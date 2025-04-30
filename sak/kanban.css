@@ -89,10 +89,11 @@ body {
 }
 
 .theme {
-    text-align: center;
+    text-align: left;
     font-size: larger;
-    margin-bottom: 10px;
     text-transform: uppercase;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
 }
 
 .link {
@@ -114,6 +115,23 @@ body {
 
 label {
     font-weight: bold;
+}
+
+select {
+    background-color: #faf7e8;
+    border-radius: 8px;
+    color: #393939;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 0.75rem;
+}
+
+.themeAndSelect {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .lightGreen {

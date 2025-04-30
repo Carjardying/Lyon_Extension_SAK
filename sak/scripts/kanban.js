@@ -23,14 +23,18 @@ function createTasks(currentTasks) {
 
 function createNewTaskDiv(task, currentTasks) {
   let newTask = document.createElement("div");
+  let themeAndSelect = document.createElement("div");
 
   newTask.classList.add("task");
+  themeAndSelect.classList.add("themeAndSelect");
   
-  getTheme(newTask, task);
+  getTheme(themeAndSelect, task);
+  createStatusSelector(newTask, task, currentTasks, themeAndSelect);
+  newTask.appendChild(themeAndSelect);
   getURL(newTask, task);
   getDescription(newTask, task);
-  createStatusSelector(newTask, task, currentTasks);
   dispatchTask(newTask, task);
+  
 }
 
 function dispatchTask(newTask, task) {
@@ -47,19 +51,20 @@ function dispatchTask(newTask, task) {
   
 }
 
-function getTheme(newTask, task) {
+function getTheme(themeAndSelect, task) {
   let theme = document.createElement("span");
 
   theme.innerText = task.theme;
   theme.classList.add("theme");
 
-  newTask.appendChild(theme);
+  themeAndSelect.appendChild(theme);
 }
 
 function getURL(newTask, task) {
   let link = document.createElement("a");
 
   link.setAttribute("href", task.url);
+  link.setAttribute("target", "_blank");
   link.innerText = task.url;
   link.classList.add("link");
 
@@ -80,8 +85,9 @@ function getDescription(newTask, task) {
   newTask.appendChild(description);
 }
 
-function createStatusSelector(newTask, task, currentTasks) {
+function createStatusSelector(newTask, task, currentTasks, themeAndSelect) {
   let statusSelector = document.createElement("select");
+  let optionDefault = document.createElement("option");
   let optionToDo = document.createElement("option");
   let optionInProgress = document.createElement("option");
   let optionDone = document.createElement("option");
@@ -90,14 +96,16 @@ function createStatusSelector(newTask, task, currentTasks) {
   optionInProgress.value = "en cours";
   optionDone.value ="terminé";
 
+  optionDefault.innerText = "Changer status";
   optionToDo.innerText = "à faire";
   optionInProgress.innerText = "en cours";
   optionDone.innerText = "terminé";
 
+  statusSelector.appendChild(optionDefault);
   statusSelector.appendChild(optionToDo);
   statusSelector.appendChild(optionInProgress);
   statusSelector.appendChild(optionDone);
-  newTask.appendChild(statusSelector);
+  themeAndSelect.appendChild(statusSelector);
   
   changeStatus(newTask, task, statusSelector, currentTasks);
 }
