@@ -7,40 +7,40 @@
     <title>SAK</title>
     <link rel="stylesheet" href="popup.css">
     <script src="./scripts/popup.js" defer></script>
-    <script src="scripts/kanban.js" defer></script>
 </head>
 
 <body>
-    <h1>SAK</h1>
-    <section id="main-page">
-        <div>
-            <label for="add-button">Enregistrer la page </label> <br>
-            <button id="add-button">Enregistrer</button>
-        </div>
-        <div>
-            <label for="go-to-button">Ouvrir ma TO-DO List</label> <br>
-            <button id="go-to-button">Ouvrir</button>
-        </div>
-    </section>
-
-    <section id="adding-page" style="display: none;">
-        <div class="urlDiv">
-            <label for="tab-url"> Url :</label>
-            <span id="tab-url"></span>
-        </div>
-        <div>
-            <label for="topic">Thème :</label>
-            <input type="text" id="topic">
-        </div>
-        <div>
-            <label for="description">Description :</label>
-            <input type="text" id="description">
-        </div>
-        <div class="displayButtons">
-            <button id="close-button">Annuler</button>
-            <button id="send-button">Enregistrer</button>
-        </div>
-    </section>
+    <div class="content">
+        <h1>SAK</h1>
+        <section id="main-page">
+            <div>
+                <label for="add-button">Enregistrer la page </label> <br>
+                <button id="add-button">Enregistrer</button>
+            </div>
+            <div>
+                <label for="go-to-button">Ouvrir ma TO-DO List</label> <br>
+                <button id="go-to-button">Ouvrir</button>
+            </div>
+        </section>
+        <section id="adding-page" style="display: none;">
+            <div class="urlDiv">
+                <label for="tab-url"> Url :</label>
+                <span id="tab-url"></span>
+            </div>
+            <div>
+                <label for="topic">Thème :</label>
+                <input type="text" id="topic">
+            </div>
+            <div>
+                <label for="description">Description :</label>
+                <textarea type="text" id="description"></textarea>
+            </div>
+            <div class="displayButtons">
+                <button id="close-button">Annuler</button>
+                <button id="send-button">Enregistrer</button>
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>

@@ -1,8 +1,4 @@
-/* --------------------GLOBAL FONT AND BACKGROUND COLOR-----------------------------*/
-
-body {
-    background-color: #393939;
-}
+/* --------------------FONTS-------------------- */
 
 .fontSpecimen {
     font-family: "Lexend", sans-serif;
@@ -11,103 +7,142 @@ body {
     font-style: normal;
 }
 
-/* --------------------THEMES SELECT BUTTON-----------------------------*/
 
-.themeDiv{
-    color: whitesmoke;
+/* --------------------GLOBAL-------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.themeChoice {
+body {
+    background-color: #393939;
     font-family: "Lexend", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    padding: 10px;
 }
 
-/** --------------------KANBAN INTEGRAL----------------------------- **/
+
+/* --------------------THEME SELECTOR-------------------- */
+
+.themeDiv {
+    color: #faf7e8;
+}
+
+#theme-select {
+    font-family: "Lexend", sans-serif;
+    background-color: #faf7e8;
+}
+
+
+/* --------------------KANBAN-------------------- */
+
 .kanban {
     display: flex;
     justify-content: space-evenly;
-    grid-auto-rows: auto;
-    margin-top: 20px;
+    align-items: baseline;
+    margin: 20px 150px 10px 150px;
 }
 
-/** --------------------BLOC DES INTITULES DES ACTIONS----------------------------- **/
-.toDoList {
-    border: solid #0c22a3;
-    background-color: #0c22a3;
-    width: 200px;
-    height: 50px;
+.task-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    width: 250px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: inherit;
+    padding: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    color: whitesmoke;
+    border: solid 3px #faf7e8;
+    color: #faf7e8;
+    font-weight: 500;
+    font-size: large;
+    text-transform: uppercase;
 }
 
-.inProgress {
-    border: solid #b25e24;
-    background-color: #b25e24;
-    width: 200px;
-    height: 50px;
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: inherit;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: inherit;
+    padding: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    color: whitesmoke;
+    border: solid 1px #faf7e8;
+    color: #faf7e8;
 }
 
-.done {
-    border: solid #065a50;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #065a50;
-    color: whitesmoke;
+.theme {
+    text-align: left;
+    font-size: larger;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
 }
 
-.toDoText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
+.link {
+    text-align: left;
+    margin-bottom: 10px;
+    font-style: italic;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+    color: #dcdbd6;
+    font-weight: 300;
 }
 
-.inProgressText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
+.description {
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    text-align: justify;
 }
 
-.doneText {
-    display: grid;
-    place-items: center;
-    color: whitesmoke;
+label {
+    font-weight: bold;
 }
 
-/** --------------------BLOC DES ACTIONS DYNAMIQUE----------------------------- **/
-
-.toDoTask {
-    margin-top: 50px;
-    border: solid #0c22a3;
-    background-color: #0c22a3;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 50px;
+select {
+    background-color: #faf7e8;
+    border-radius: 8px;
+    color: #393939;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 0.75rem;
 }
 
-.inProgressList {
-    margin-top: 50px;
-    border: solid #b25e24;
-    background-color: #b25e24;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
+.themeAndSelect {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-.doneList {
-    margin-top: 50px;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    border: solid #065a50;
-    background-color: #065a50;
+.lightGreen {
+    background-color: #0d8c7d;
+}
+
+.green {
+    background-color: #08695e;
+}
+
+.darkGreen {
+    background-color: #074b43b7;
+    color: #faf7e8bb;
 }
