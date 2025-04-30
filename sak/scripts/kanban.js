@@ -11,44 +11,43 @@ function showKanban() {
   chrome.storage.local.get("myTasks", (result) => {
     const currentTasks = result.myTasks || [];
 
-    createTasks(currentTasks);
+    showTasks(currentTasks);
   });
 }
 
-function createTasks(currentTasks) {
+function showTasks(currentTasks) {
   currentTasks.forEach((task) => {
-    createNewTaskDiv(task, currentTasks);
+    showOneTask(task, currentTasks);
   });
 }
 
-function createNewTaskDiv(task, currentTasks) {
+function showOneTask(task, currentTasks) {
   let newTask = document.createElement("div");
   let themeAndSelect = document.createElement("div");
 
   newTask.classList.add("task");
   themeAndSelect.classList.add("themeAndSelect");
-  
   getTheme(themeAndSelect, task);
   createStatusSelector(newTask, task, currentTasks, themeAndSelect);
   newTask.appendChild(themeAndSelect);
   getURL(newTask, task);
   getDescription(newTask, task);
-  dispatchTask(newTask, task);
-  
+  distributeTask(newTask, task);
 }
 
-function dispatchTask(newTask, task) {
+function distributeTask(newTask, task) {
   if (task.status === "à faire") {
     toDoContainer.appendChild(newTask);
     newTask.classList.add("lightGreen");
-  } else if (task.status === "en cours") {
+  }
+  else if (task.status === "en cours") {
     inProgressContainer.appendChild(newTask);
     newTask.classList.add("green");
-  } else if (task.status === "terminé") {
+  }
+  else if (task.status === "terminé") {
     doneContainer.appendChild(newTask);
     newTask.classList.add("darkGreen");
   }
-  
 }
 
 function getTheme(themeAndSelect, task) {
@@ -56,7 +55,6 @@ function getTheme(themeAndSelect, task) {
 
   theme.innerText = task.theme;
   theme.classList.add("theme");
-
   themeAndSelect.appendChild(theme);
 }
 
@@ -67,7 +65,6 @@ function getURL(newTask, task) {
   link.setAttribute("target", "_blank");
   link.innerText = task.url;
   link.classList.add("link");
-
   newTask.appendChild(link);
 }
 
@@ -79,7 +76,6 @@ function getDescription(newTask, task) {
   label.innerText = `Description :`;
   textDescription.innerText = task.description;
   textDescription.classList.add("description");
-
   description.appendChild(label);
   description.appendChild(textDescription);
   newTask.appendChild(description);
@@ -92,13 +88,12 @@ function createStatusSelector(newTask, task, currentTasks, themeAndSelect) {
   let optionInProgress = document.createElement("option");
   let optionDone = document.createElement("option");
 
-  optionToDo.value = "à faire";
-  optionInProgress.value = "en cours";
-  optionDone.value ="terminé";
-
   optionDefault.innerText = "Changer status";
+  optionToDo.value = "à faire";
   optionToDo.innerText = "à faire";
+  optionInProgress.value = "en cours";
   optionInProgress.innerText = "en cours";
+  optionDone.value = "terminé";
   optionDone.innerText = "terminé";
 
   statusSelector.appendChild(optionDefault);
@@ -106,21 +101,19 @@ function createStatusSelector(newTask, task, currentTasks, themeAndSelect) {
   statusSelector.appendChild(optionInProgress);
   statusSelector.appendChild(optionDone);
   themeAndSelect.appendChild(statusSelector);
-  
   changeStatus(newTask, task, statusSelector, currentTasks);
 }
 
 function changeStatus(newTask, task, statusSelector, currentTasks) {
-  statusSelector.addEventListener("change", ()=>{
+  statusSelector.addEventListener("change", () => {
     task.status = statusSelector.value;
     newTask.classList.remove("lightGreen", "green", "darkGreen");
-    dispatchTask(newTask, task, statusSelector);
+    distributeTask(newTask, task, statusSelector);
     chrome.storage.local.set({ myTasks: currentTasks });
-  })
+  });
 }
 
 
 // execute code
 
 showKanban();
-

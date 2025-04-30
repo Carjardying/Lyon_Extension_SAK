@@ -22,13 +22,13 @@ body {
 }
 
 
-/* --------------------THEME SELECTOR-------------------- */
+/* --------------------THEME FILTER-------------------- */
 
-.themeDiv {
+.filter-container {
     color: #faf7e8;
 }
 
-#theme-select {
+.theme-filter {
     font-family: "Lexend", sans-serif;
     background-color: #faf7e8;
 }
@@ -49,7 +49,7 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 5px;
-    width: 250px;
+    width: 300px;
 }
 
 .status {

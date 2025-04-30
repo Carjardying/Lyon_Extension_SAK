@@ -2,12 +2,12 @@
 
 const mainPage = document.querySelector('#main-page');
 const addingPage = document.querySelector('#adding-page');
-const goToButton = document.querySelector('#go-to-button');
+const openKanbanButton = document.querySelector('#open-kanban-button');
 const addButton = document.querySelector('#add-button');
-const sendButton = document.querySelector('#send-button');
-const closeButton = document.querySelector('#close-button');
+const saveButton = document.querySelector('#save-button');
+const cancelButton = document.querySelector('#cancel-button');
+const theme = document.querySelector('#theme');
 const tabUrl = document.querySelector('#tab-url');
-const topic = document.querySelector('#topic');
 const description = document.querySelector('#description');
 let tasks = [];
 
@@ -27,9 +27,8 @@ function updateChromeStorage() {
 function getTabUrl() {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const currentTab = tabs[0];
-        const url = currentTab.url;
 
-        tabUrl.textContent = url;
+        tabUrl.textContent = currentTab.url;
     });
 }
 
@@ -47,10 +46,10 @@ function addTask(newTask) {
 
 updateChromeStorage();
 
-goToButton.addEventListener("click", () => {
-  chrome.tabs.create({
-    url: "kanban.html",
-  });
+openKanbanButton.addEventListener("click", () => {
+    chrome.tabs.create({
+        url: "kanban.html",
+    });
 });
 
 addButton.addEventListener("click", () => {
@@ -59,19 +58,18 @@ addButton.addEventListener("click", () => {
     getTabUrl();
 });
 
-closeButton.addEventListener("click", () => {
-  mainPage.style.display = "block";
-  addingPage.style.display = "none";
+cancelButton.addEventListener("click", () => {
+    mainPage.style.display = "block";
+    addingPage.style.display = "none";
 });
 
-sendButton.addEventListener("click", () => {
+saveButton.addEventListener("click", () => {
     const newTask = {
-        id: 1,
         status: "à faire",
         url: tabUrl.textContent,
-        theme: topic.value,
+        theme: theme.value,
         description: description.value
-    }
+    };
 
     addTask(newTask);
     window.close();

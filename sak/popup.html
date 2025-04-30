@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAK</title>
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="./popup.css">
     <script src="./scripts/popup.js" defer></script>
 </head>
 
@@ -14,30 +14,32 @@
         <h1>SAK</h1>
         <section id="main-page">
             <div>
-                <label for="add-button">Enregistrer la page </label> <br>
-                <button id="add-button">Enregistrer</button>
+                <label for="open-kanban-button">Ouvrir ma To-Do List</label>
+                <br>
+                <button id="open-kanban-button">Ouvrir</button>
             </div>
             <div>
-                <label for="go-to-button">Ouvrir ma TO-DO List</label> <br>
-                <button id="go-to-button">Ouvrir</button>
+                <label for="add-button">Ajouter la page web</label>
+                <br>
+                <button id="add-button">Ajouter</button>
             </div>
         </section>
         <section id="adding-page" style="display: none;">
-            <div class="urlDiv">
+            <div>
+                <label for="theme">Thème :</label>
+                <input type="text" id="theme">
+            </div>
+            <div class="url-div">
                 <label for="tab-url"> Url :</label>
                 <span id="tab-url"></span>
-            </div>
-            <div>
-                <label for="topic">Thème :</label>
-                <input type="text" id="topic">
             </div>
             <div>
                 <label for="description">Description :</label>
                 <textarea type="text" id="description"></textarea>
             </div>
-            <div class="displayButtons">
-                <button id="close-button">Annuler</button>
-                <button id="send-button">Enregistrer</button>
+            <div class="display-buttons">
+                <button id="cancel-button">Annuler</button>
+                <button id="save-button">Enregistrer</button>
             </div>
         </section>
     </div>
